@@ -1,0 +1,469 @@
+/* メインスタイル */
+:root {
+    --primary-color: #000;
+    --secondary-color: #333;
+    --accent-color: #0056b3;
+    --text-color: #fff;
+    --text-color-dark: #333; /* 明るい背景用の暗いテキスト色 */
+    --text-color-secondary: #ccc;
+    --text-color-secondary-dark: #666; /* 明るい背景用の暗いテキスト色（セカンダリ） */
+    --background-color: #111;
+    --background-color-light: #f5f2ed; /* 明るいセクションの背景色（ベージュ系） */
+    --box-background: #222;
+    --box-background-light: #fff; /* 明るい背景用のボックス背景色 */
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ヘッダー */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    padding: 10px 0;
+    transition: all var(--transition-speed);
+    height: 50px; /* ヘッダーの高さを固定 */
+    display: flex;
+    align-items: center;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: 1px;
+}
+
+/* ヒーローセクション */
+.hero {
+    position: relative;
+    height: 70vh; /* 高さを70vhに調整 */
+    min-height: 400px; /* 最小高さを設定 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../images/hero-bg2.webp');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color);
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 50px; /* ヘッダーの高さ分だけマージンを追加 */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards 0.5s;
+}
+
+/* ヒーローセクション補足 */
+.hero-supplement {
+    background-color: var(--background-color-light);
+    padding: 60px 0;
+    color: var(--text-color-dark);
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards 0.7s;
+    color: var(--text-color-dark);
+}
+
+/* サービス概要セクション */
+.services {
+    padding: 80px 0;
+    background-color: var(--primary-color);
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+    color: inherit;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.service-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.service-box {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--box-background);
+    padding: 30px;
+    border-radius: 5px;
+    transition: transform var(--transition-speed);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.service-box.animate {
+    animation: fadeInUp 1s forwards;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+}
+
+.service-box h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.service-box ul li {
+    margin-bottom: 10px;
+    color: var(--text-color-secondary);
+}
+
+/* サービスの強みセクション */
+.strengths {
+    padding: 80px 0;
+    background-color: var(--background-color-light);
+    color: var(--text-color-dark);
+    position: relative;
+    z-index: 1;
+}
+
+.section-title-en {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-top: 5px;
+    text-transform: lowercase;
+}
+
+.section-title-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 20px auto 40px;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--text-color-dark);
+}
+
+.strengths__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.strength-card {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.strength-card.animate {
+    animation: fadeInUp 1s forwards;
+}
+
+.strength-card__img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.strength-card__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.strength-card__title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: var(--accent-color);
+    line-height: 1.4;
+}
+
+.strength-card__text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color-dark);
+    text-align: left;
+}
+
+@media (min-width: 1024px) {
+    .strength-card {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        gap: 40px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .strength-card__img {
+        width: 45%;
+        max-width: 45%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .strength-card__content {
+        width: 45%;
+    }
+
+    .strength-card:nth-child(2) {
+        flex-direction: row-reverse;
+    }
+    
+    .strength-card__title {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .strength-card__text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .strength-card__img {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .strength-card__title {
+        font-size: 1.8rem;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .strength-card__img {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .strength-card__title {
+        font-size: 1.6rem;
+    }
+    
+    .strength-card__text {
+        font-size: 1rem;
+    }
+    
+    .section-title-description {
+        font-size: 1.4rem;
+        margin: -15px auto 30px;
+    }
+}
+
+/* ニュースセクション */
+.news {
+    padding: 80px 0;
+    background-color: var(--primary-color);
+}
+
+.news-item {
+    padding: 20px;
+    background-color: var(--box-background);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.news-item.animate {
+    animation: fadeInUp 1s forwards;
+}
+
+.news-date {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.news-content {
+    font-size: 1.1rem;
+}
+
+/* 会社概要セクション */
+.company {
+    padding: 80px 0;
+    background-color: var(--background-color-light);
+    color: var(--text-color-dark);
+}
+
+.company-info {
+    max-width: 700px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.company-info.animate {
+    animation: fadeInUp 1s forwards;
+}
+
+.company-info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color-dark);
+}
+
+.company-info p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    color: var(--text-color-dark);
+}
+
+/* フッター */
+.footer {
+    background-color: var(--primary-color);
+    padding: 30px 0;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 992px) {
+    .hero {
+        height: 60vh;
+        min-height: 350px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .service-boxes {
+        flex-direction: column;
+    }
+    
+    .service-box {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-description,
+    .strength-list li,
+    .news-content {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .service-box h3 {
+        font-size: 1.3rem;
+    }
+}
