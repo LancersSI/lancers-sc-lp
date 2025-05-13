@@ -2,7 +2,7 @@
 :root {
     --primary-color: #000;
     --secondary-color: #333;
-    --accent-color: #0056b3;
+    --accent-color: #0018b3;
     --text-color: #fff;
     --text-color-dark: #333; /* 明るい背景用の暗いテキスト色 */
     --text-color-secondary: #ccc;
@@ -51,7 +51,7 @@ body {
 }
 
 .logo h1 {
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     font-weight: 700;
     color: var(--text-color);
     letter-spacing: 1px;
@@ -60,12 +60,12 @@ body {
 /* ヒーローセクション */
 .hero {
     position: relative;
-    height: 70vh; /* 高さを70vhに調整 */
-    min-height: 400px; /* 最小高さを設定 */
+    height: 35vh; /* 高さを35vhに調整（元の半分程度） */
+    min-height: 200px; /* 最小高さも半分程度に調整 */
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('../images/hero-bg2.webp');
+    background-image: url('../images/hero-bg.webp');
     background-size: cover;
     background-position: center;
     color: var(--text-color);
@@ -90,13 +90,38 @@ body {
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     line-height: 1.2;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s forwards 0.5s;
+}
+
+/* レスポンシブ対応 - ヒーローセクション */
+@media (max-width: 768px) {
+    .hero {
+        height: 30vh;
+        min-height: 180px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 25vh;
+        min-height: 150px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+    }
 }
 
 /* ヒーローセクション補足 */
@@ -159,6 +184,36 @@ body {
     transition: transform var(--transition-speed);
     opacity: 0;
     transform: translateY(30px);
+}
+
+/* サービスボックスのレスポンシブ対応 */
+@media (min-width: 768px) {
+    .service-boxes {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    
+    .service-box {
+        flex: 1;
+        width: calc(33.333% - 20px);
+        min-width: 0; /* min-widthを解除して横幅を調整可能に */
+    }
+}
+
+@media (max-width: 767px) {
+    .service-boxes {
+        flex-direction: column;
+    }
+    
+    .service-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .service-box:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .service-box.animate {
