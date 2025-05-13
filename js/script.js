@@ -10,15 +10,21 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkScroll() {
         const triggerBottom = window.innerHeight * 0.8;
         
-        // サービスボックスのアニメーション
-        serviceBoxes.forEach((box, index) => {
-            const boxTop = box.getBoundingClientRect().top;
-            
-            if (boxTop < triggerBottom) {
-                setTimeout(() => {
-                    box.classList.add('animate');
-                }, index * 200);
-            }
+        // サービスボックスのアニメーションは無効化
+        // serviceBoxes.forEach((box, index) => {
+        //     const boxTop = box.getBoundingClientRect().top;
+        //     
+        //     if (boxTop < triggerBottom) {
+        //         setTimeout(() => {
+        //             box.classList.add('animate');
+        //         }, index * 200);
+        //     }
+        // });
+        
+        // サービスボックスは最初から表示させる
+        serviceBoxes.forEach((box) => {
+            box.style.opacity = '1';
+            box.style.transform = 'translateY(0)';
         });
         
         // 強みカードのアニメーション

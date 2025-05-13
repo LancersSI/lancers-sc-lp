@@ -39,7 +39,7 @@ body {
     z-index: 1000;
     padding: 10px 0;
     transition: all var(--transition-speed);
-    height: 50px; /* ヘッダーの高さを固定 */
+    height: 70px; /* ヘッダーの高さを増やして大きいロゴに対応 */
     display: flex;
     align-items: center;
 }
@@ -51,17 +51,18 @@ body {
 }
 
 .logo h1 {
-    font-size: 1.0rem;
+    font-size: 2.0rem;
     font-weight: 700;
     color: var(--text-color);
     letter-spacing: 1px;
+    line-height: 1.2;
 }
 
 /* ヒーローセクション */
 .hero {
     position: relative;
-    height: 35vh; /* 高さを35vhに調整（元の半分程度） */
-    min-height: 200px; /* 最小高さも半分程度に調整 */
+    height: 50vh; /* 高さを50vhに調整 */
+    min-height: 300px; /* 最小高さも調整 */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,7 +72,7 @@ body {
     color: var(--text-color);
     text-align: center;
     padding: 0 20px;
-    margin-top: 50px; /* ヘッダーの高さ分だけマージンを追加 */
+    margin-top: 70px; /* ヘッダーの高さ分だけマージンを追加 */
 }
 
 .hero-overlay {
@@ -90,37 +91,66 @@ body {
 }
 
 .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     line-height: 1.2;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s forwards 0.5s;
 }
 
+/* レスポンシブ対応 - ヘッダー */
+@media (max-width: 768px) {
+    .header {
+        height: 60px;
+    }
+    
+    .logo h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        height: 50px;
+    }
+    
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+    
+    .hero {
+        margin-top: 50px;
+    }
+}
+
 /* レスポンシブ対応 - ヒーローセクション */
 @media (max-width: 768px) {
     .hero {
-        height: 30vh;
-        min-height: 180px;
+        height: 40vh;
+        min-height: 250px;
     }
     
     .hero-title {
-        font-size: 2rem;
-        margin-bottom: 10px;
+        font-size: 2.3rem;
+        margin-bottom: 15px;
     }
 }
 
 @media (max-width: 480px) {
     .hero {
-        height: 25vh;
-        min-height: 150px;
+        height: 35vh;
+        min-height: 200px;
     }
     
     .hero-title {
-        font-size: 1.8rem;
-        margin-bottom: 8px;
+        font-size: 2rem;
+        margin-bottom: 10px;
     }
 }
 
@@ -278,6 +308,7 @@ body {
     z-index: 1;
     opacity: 0;
     transform: translateY(30px);
+    margin-bottom: 40px;
 }
 
 .strength-card.animate {
