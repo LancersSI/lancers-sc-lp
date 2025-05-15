@@ -4,13 +4,17 @@
     --secondary-color: #333;
     --accent-color: #0018b3;
     --text-color: #fff;
-    --text-color-dark: #333; /* 明るい背景用の暗いテキスト色 */
+    --text-color-dark: #333;
+    /* 明るい背景用の暗いテキスト色 */
     --text-color-secondary: #ccc;
-    --text-color-secondary-dark: #666; /* 明るい背景用の暗いテキスト色（セカンダリ） */
+    --text-color-secondary-dark: #666;
+    /* 明るい背景用の暗いテキスト色（セカンダリ） */
     --background-color: #111;
-    --background-color-light: #f5f2ed; /* 明るいセクションの背景色（ベージュ系） */
+    --background-color-light: #f5f2ed;
+    /* 明るいセクションの背景色（ベージュ系） */
     --box-background: #222;
-    --box-background-light: #fff; /* 明るい背景用のボックス背景色 */
+    --box-background-light: #fff;
+    /* 明るい背景用のボックス背景色 */
     --transition-speed: 0.3s;
 }
 
@@ -39,17 +43,42 @@ body {
     z-index: 1000;
     padding: 10px 0;
     transition: all var(--transition-speed);
-    height: 70px; /* ヘッダーの高さを増やして大きいロゴに対応 */
+    height: 70px;
     display: flex;
     align-items: center;
 }
 
 .header-inner {
+    min-height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* ロゴ画像のサイズ調整 */
+.logo-image {
+    width: auto;
+    min-height: 50px; /* section-title と同じ高さに調整 */
+    display: block;
+    margin: 0 auto;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 1.8rem; /* モバイル用に高さを少し小さく */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        max-width: 240px; /* モバイル用に最大幅を設定 */
+        display: block;
+        margin: 0 auto; /* 中央寄せ */
+        height: 1.5rem; /* スマホ用にさらに小さく */
+        display: center;
+    }
+}
 .logo h1 {
     font-size: 2.0rem;
     font-weight: 700;
@@ -61,8 +90,8 @@ body {
 /* ヒーローセクション */
 .hero {
     position: relative;
-    height: 50vh; /* 高さを50vhに調整 */
-    min-height: 300px; /* 最小高さも調整 */
+    height: 50vh;
+    min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,7 +101,7 @@ body {
     color: var(--text-color);
     text-align: center;
     padding: 0 20px;
-    margin-top: 70px; /* ヘッダーの高さ分だけマージンを追加 */
+    margin-top: 70px;
 }
 
 .hero-overlay {
@@ -105,11 +134,11 @@ body {
     .header {
         height: 60px;
     }
-    
+
     .logo h1 {
         font-size: 1.6rem;
     }
-    
+
     .hero {
         margin-top: 60px;
     }
@@ -119,11 +148,11 @@ body {
     .header {
         height: 50px;
     }
-    
+
     .logo h1 {
         font-size: 1.2rem;
     }
-    
+
     .hero {
         margin-top: 50px;
     }
@@ -135,7 +164,7 @@ body {
         height: 40vh;
         min-height: 250px;
     }
-    
+
     .hero-title {
         font-size: 2.3rem;
         margin-bottom: 15px;
@@ -147,7 +176,7 @@ body {
         height: 35vh;
         min-height: 200px;
     }
-    
+
     .hero-title {
         font-size: 2rem;
         margin-bottom: 10px;
@@ -223,11 +252,11 @@ body {
         flex-direction: row;
         flex-wrap: nowrap;
     }
-    
+
     .service-box {
         flex: 1;
         width: calc(33.333% - 20px);
-        min-width: 0; /* min-widthを解除して横幅を調整可能に */
+        min-width: 0;
     }
 }
 
@@ -235,12 +264,12 @@ body {
     .service-boxes {
         flex-direction: column;
     }
-    
+
     .service-box {
         width: 100%;
         margin-bottom: 20px;
     }
-    
+
     .service-box:last-child {
         margin-bottom: 0;
     }
@@ -373,12 +402,12 @@ body {
     .strength-card:nth-child(2) {
         flex-direction: row-reverse;
     }
-    
+
     .strength-card__title {
         font-size: 2.2rem;
         margin-bottom: 20px;
     }
-    
+
     .strength-card__text {
         font-size: 1.2rem;
     }
@@ -389,7 +418,7 @@ body {
         max-width: 100%;
         width: 100%;
     }
-    
+
     .strength-card__title {
         font-size: 1.8rem;
         margin-top: 15px;
@@ -401,15 +430,15 @@ body {
         max-width: 100%;
         width: 100%;
     }
-    
+
     .strength-card__title {
         font-size: 1.6rem;
     }
-    
+
     .strength-card__text {
         font-size: 1rem;
     }
-    
+
     .section-title-description {
         font-size: 1.4rem;
         margin: -15px auto 30px;
@@ -493,6 +522,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -505,15 +535,15 @@ body {
         height: 60vh;
         min-height: 350px;
     }
-    
+
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .service-boxes {
         flex-direction: column;
     }
-    
+
     .service-box {
         min-width: 100%;
     }
@@ -524,15 +554,15 @@ body {
         height: 50vh;
         min-height: 300px;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .section-title {
         font-size: 1.8rem;
     }
-    
+
     .hero-description,
     .strength-list li,
     .news-content {
@@ -544,11 +574,11 @@ body {
     .hero-title {
         font-size: 1.8rem;
     }
-    
+
     .section-title {
         font-size: 1.5rem;
     }
-    
+
     .service-box h3 {
         font-size: 1.3rem;
     }
