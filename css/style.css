@@ -33,6 +33,11 @@ body {
     padding: 0 15px;
 }
 
+ol {
+  list-style-type: decimal;
+    padding-left: 20px; 
+}
+
 /* ヘッダー */
 .header {
     position: fixed;
@@ -116,7 +121,7 @@ body {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 .hero-title {
@@ -245,6 +250,14 @@ body {
     transform: translateY(30px);
 }
 
+.service-box h3 {
+    font-size: 20px;
+}
+
+.service-box > ol > li {
+    margin-bottom: 0.5rem;
+}
+
 /* サービスボックスのレスポンシブ対応 */
 @media (min-width: 768px) {
     .service-boxes {
@@ -252,11 +265,14 @@ body {
         flex-direction: row;
         flex-wrap: nowrap;
     }
-
+    
     .service-box {
         flex: 1;
         width: calc(33.333% - 20px);
         min-width: 0;
+    }
+    .service-box h3 {
+        white-space: nowrap; /* 改行を防止 */
     }
 }
 
@@ -273,6 +289,12 @@ body {
     .service-box:last-child {
         margin-bottom: 0;
     }
+
+     .service-box h3 {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
 }
 
 .service-box.animate {
@@ -284,10 +306,16 @@ body {
 }
 
 .service-box h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 20px;
     color: var(--text-color);
+}
+
+@media (768px <= width < 1200px) {
+     .service-box h3 {
+        font-size: 1.0rem;
+    }
 }
 
 .service-box ul li {
@@ -337,7 +365,7 @@ body {
     z-index: 1;
     opacity: 0;
     transform: translateY(30px);
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .strength-card.animate {
@@ -399,7 +427,7 @@ body {
         width: 45%;
     }
 
-    .strength-card:nth-child(2) {
+    .strength-card:nth-child(2), .strength-card:nth-child(4) {
         flex-direction: row-reverse;
     }
 
