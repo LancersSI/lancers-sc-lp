@@ -500,6 +500,11 @@ ol {
 
 .news-content {
     font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.news-content:link {
+    text-decoration: underline;
 }
 
 /* 会社概要セクション */
