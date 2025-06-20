@@ -484,10 +484,6 @@ ol {
     color: var(--text-color-dark);
 }
 
-.company-info {
-    max-width: 700px;
-}
-
 
 .company-info h3 {
     font-size: 1.3rem;
@@ -513,6 +509,24 @@ ol {
     font-size: 0.9rem;
     color: var(--text-color-secondary);
 }
+
+.footer-links {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.footer-link {
+    color: #999;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+
+
+
 
 /* アニメーション */
 @keyframes fadeInUp {
@@ -579,5 +593,231 @@ ol {
 
     .service-box h3 {
         font-size: 1.3rem;
+    }
+}
+
+
+/* プライバシーポリシーページ用スタイル */
+.privacy-policy, 
+.personal-info {
+    background-color: var(--background-color-light);
+    color: var(--text-color-dark);
+    padding: 80px 0;
+}
+
+.privacy-policy h1, 
+.personal-info h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-color-dark);
+}
+
+.policy-meta {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-color-secondary-dark);
+}
+
+.policy-introduction p{
+    line-height: 1.8;
+}
+
+.policy-introduction ol {
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    background-color: var(--box-background-light);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.contact-info h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--text-color-dark);
+}
+
+.contact-info p {
+    color: var(--text-color-dark);
+    margin-bottom: 3px !important;
+}
+
+.contact-info a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* テーブルスタイル */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.info-table th, 
+.info-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.info-table thead {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.info-table th {
+    font-weight: bold;
+}
+
+.info-table tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.info-table ol {
+    padding-left: 20px;
+    margin: 0;
+}
+.section-header {
+    font-weight: bold;
+}
+ol[type="a"] {
+    list-style-type: lower-alpha;
+}
+.maru-list {
+    list-style-type: none;
+    counter-reset: item;
+    padding-left: 0;
+}
+
+.maru-list > li {
+    counter-increment: item;
+    position: relative;
+    padding-left: 30px;
+}
+
+.maru-list > li::before {
+    content: "(" counter(item) ")";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.u-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.u-list > li::before {
+    content: "・";
+    margin-right: 0.5em;
+}
+.alpha-list {
+    padding-left: 2em;
+}
+.privacy-policy .container,
+.personal-info .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.privacy-policy h1, 
+.personal-info h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.policy-meta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.policy-meta p {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.contact-info-end {
+    text-align: right;
+    align-self: flex-end;
+}
+
+.policy-introduction p {
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+.policy-introduction ol {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.policy-introduction ol > li {
+    margin-bottom: 1em;
+}
+
+
+.contact-info {
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .privacy-policy h1, 
+    .personal-info h1 {
+        font-size: 2rem;
+    }
+
+    .policy-meta p:last-child {
+        align-self: center;
+    }
+
+    .info-table,
+    .info-table tbody,
+    .info-table tr,
+    .info-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .info-table thead {
+        display: none;
+    }
+
+    .info-table tr {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+    }
+
+    .info-table td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .info-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
     }
 }
